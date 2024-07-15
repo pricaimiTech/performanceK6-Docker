@@ -1,0 +1,35 @@
+{
+  "SETTINGS": {
+    "baseUrl": "https://fakestoreapi.com",
+    "header": "application/json"
+  },
+  "PRODUCT": {
+    "id": 1,
+    "product_Update": 7
+  },
+  "AddProduct": {
+    "title": "test product",
+    "price": 13.5,
+    "description": "lorem ipsum set",
+    "image": "https://i.pravatar.cc",
+    "category": "electronic"
+  },
+  "UpdateProduct": {
+    "title": "test product",
+    "price": 13.5,
+    "description": "lorem ipsum set 2",
+    "image": "https://i.pravatar.cc",
+    "category": "electronic"
+  },
+  "TEST_FILTERS": {
+    "enabled": false,
+    "startsWith": null,
+    "endsWith": null,
+    "contains": null,
+    "regex": null
+  },
+  "ENVIRONMENT": {
+    "execution": "local",
+    "optionsSet": "load"
+  }
+}
