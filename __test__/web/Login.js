@@ -1,13 +1,13 @@
 import { browser } from 'k6/experimental/browser';
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
+import { check } from 'k6';
 
 const configWebLoad = JSON.parse(open('../../env/Web/config.web.json'));
 
 export const options = {
   scenarios: {
-    ui: configWebLoad.UI,
-    news: configWebLoad.NEWS,
+    ui: configWebLoad.BROWSER,
   },
   thresholds: {
     checks: configWebLoad.THRESHOLDS.checks,
@@ -46,7 +46,7 @@ export default async function () {
 
 export function handleSummary(data) {
   return {
-    "report/WEB/LoginK6.html": htmlReport(data, { debug: false }),
+    "report/WEB/Login.html": htmlReport(data, { debug: false }),
     stdout: textSummary(data, { indent: " ", enableColors: true }),
   };
 }

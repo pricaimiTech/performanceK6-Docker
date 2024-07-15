@@ -1,7 +1,7 @@
 # performanceK6-Docker
 Projeto dedicado a realizar testes de performance com K6, dashboard e docker
 
-
+[Tipos de Teste](https://grafana.com/docs/k6/latest/testing-guides/test-types/)
 
 [Docker](https://docs.docker.com/guides/)
 

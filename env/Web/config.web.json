@@ -5,7 +5,14 @@
     },
     "UI": {
         "executor": "shared-iterations",
-        "exec": "browserTest",
+        "options": {
+            "browser": {
+                "type": "chromium"
+            }
+        }
+    },
+    "BROWSER": {
+        "executor": "constant-vus",
         "vus": 1,
         "duration": "3s",
         "options": {
@@ -29,6 +36,19 @@
     "THRESHOLDS": {
         "checks": [
             "rate==1.0"
+        ],
+        "http_req_failed": [
+            "rate<0.01"
+        ],
+        "http_req_duration": [
+            "p(95)<500",
+            "p(99)<1000"
+        ],
+        "browser_web_vital_fcp": [
+            "p(95) < 1000"
+        ],
+        "browser_web_vital_lcp": [
+            "p(95) < 2000"
         ]
     },
     "tags": {

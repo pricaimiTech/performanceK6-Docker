@@ -7,7 +7,7 @@ const configWebLoad = JSON.parse(open('../../env/Web/config.web.json'));
 export const options = {
   scenarios: {
     ui: configWebLoad.UI,
-    },
+  },
   thresholds: {
     checks: configWebLoad.THRESHOLDS.checks,
   },
@@ -18,7 +18,7 @@ export default async function () {
 
   try {
     await page.goto(`${configWebLoad.SETTINGS.baseUrl}`);
-    await page.screenshot({ path: 'screenshots/screenshot.png' });
+    await page.screenshot({ path: `screenshots/screenshot${Date.now()}.png` });
   } finally {
     await page.close();
   }
@@ -26,7 +26,7 @@ export default async function () {
 
 export function handleSummary(data) {
   return {
-    "report/WEB/LoginK6.html": htmlReport(data, { debug: false }),
+    "report/WEB/OpenK6.html": htmlReport(data, { debug: false }),
     stdout: textSummary(data, { indent: " ", enableColors: true }),
   };
 }
