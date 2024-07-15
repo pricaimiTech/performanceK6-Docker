@@ -1,0 +1,59 @@
+{
+    "SETTINGS": {
+        "baseUrl": "https://test.k6.io/",
+        "login": "https://test.k6.io/my_messages.php"
+    },
+    "UI": {
+        "executor": "shared-iterations",
+        "options": {
+            "browser": {
+                "type": "chromium"
+            }
+        }
+    },
+    "BROWSER": {
+        "executor": "constant-vus",
+        "vus": 1,
+        "duration": "3s",
+        "options": {
+            "browser": {
+                "type": "chromium"
+            }
+        }
+    },
+    "NEWS": {
+        "executor": "constant-vus",
+        "exec": "news",
+        "vus": 1,
+        "duration": "3s"
+    },
+    "STAGES": [
+        {
+            "duration": "1s",
+            "target": 1
+        }
+    ],
+    "THRESHOLDS": {
+        "checks": [
+            "rate==1.0"
+        ],
+        "http_req_failed": [
+            "rate<0.01"
+        ],
+        "http_req_duration": [
+            "p(95)<500",
+            "p(99)<1000"
+        ],
+        "browser_web_vital_fcp": [
+            "p(95) < 1000"
+        ],
+        "browser_web_vital_lcp": [
+            "p(95) < 2000"
+        ]
+    },
+    "tags": {
+        "environment": "local",
+        "web_name": "Login K6",
+        "test_type": "load"
+    }
+}
