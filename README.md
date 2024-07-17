@@ -39,6 +39,12 @@ Se você quiser rodar um script específico sem alterar o docker-compose.yml, us
 docker-compose run k6 run /scripts/GetAllProducts.js
 ```
 
+Para rodar todos os testes atraves de um arquivo bash
+
+```
+sh run-load-test.sh 
+```
+
 ### Erros 
 
 **Docker**
