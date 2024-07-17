@@ -1,5 +1,3 @@
-version: '3.4'
-
 networks:
   k6:
   grafana:
@@ -16,7 +14,7 @@ services:
       - INFLUXDB_DB=k6
 
   grafana:
-    image: grafana/grafana:8.5.21
+    image: grafana/grafana:9.3.8
     networks:
       - grafana
     ports:
@@ -32,7 +30,7 @@ services:
       - ./grafana-datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
 
   k6:
-    image: loadimpact/k6:latest
+    image: grafana/k6:latest
     networks:
       - k6
     ports:
@@ -40,4 +38,7 @@ services:
     environment:
       - K6_OUT=influxdb=http://influxdb:8086/k6
     volumes:
-      - ./scripts:/scripts
+      # - ./scripts:/scripts
+      - ./__test__/API:/scripts
+    entrypoint: ["sh", "-c", "k6 run /scripts/GetAllProducts.js"]
+
