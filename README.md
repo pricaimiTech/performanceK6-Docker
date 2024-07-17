@@ -20,10 +20,22 @@ Projeto dedicado a realizar testes de performance com K6, dashboard e docker
 Estrutura de pasta 
 
 ```
-project-root/
+/path/to/your/project
+│
 ├── docker-compose.yml
-└── scripts
-    └── GetAllProducts.js
+├── __test__
+│   └── API
+│       ├── GetAllProducts.js
+│       ├── AddNewProduct.js
+│       ├── UpdateAProduct.js
+│       └── ...
+├── env
+│   └── API
+│       ├── settings.json
+│       └── config.load.json
+├── grafana-dashboard.yaml
+├── grafana-datasource.yaml
+└── dashboards
 ```
 Certifique-se de que a estrutura de pastas esteja correta conforme ilustrado acima. Navegue até o diretório raiz do seu projeto onde o arquivo docker-compose.yml está localizado. Execute o Docker Compose:
 
@@ -53,7 +65,7 @@ sh run-load-test.sh
 Please try shutting WSL down (wsl --shutdown) and/or rebooting your computer. If not sufficient, WSL may need to be reinstalled fully. As a last resort, try to uninstall/reinstall Docker Desktop.
 ```
 
-[Link do forum](https://forums.docker.com/t/an-unexpected-error-was-encountered-while-executing-a-wsl-command/137525/8)
+[Link do forum para resolução](https://forums.docker.com/t/an-unexpected-error-was-encountered-while-executing-a-wsl-command/137525/8)
 
 ```
 I got the same problem while try to install docker desktop.
