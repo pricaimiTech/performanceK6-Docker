@@ -1,3 +1,6 @@
+/**
+ * @description Este teste valida o request de um unico produto com base em load test
+ */
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
 import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
 
@@ -19,6 +22,10 @@ export default function () {
     console.log(response.body)
     check(response, { 'status was 200': r => r.status === 200 });
 }
+
+/**
+ * @param {*} data este parametro é os dados recebidos durante o teste, isso irá gerar o report html
+ */
 
 export function handleSummary(data) {
     return {

@@ -11,7 +11,7 @@ export let options = {
         { duration: "5s", target: 10 },
   
         // Stay at rest on TARGET_VUS VUs for 10s
-        { duration: "10s", target: 20 },
+        { duration: "10s", target: 10 },
   
         // Ramp-down from TARGET_VUS to 0 VUs for 5s
         { duration: "5s", target: 0 }
